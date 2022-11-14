@@ -3,6 +3,7 @@ import 'package:flutter_portfolio/constants.dart';
 import 'package:flutter_portfolio/components/animated_progress_indicator.dart';
 import 'package:flutter_portfolio/screens/home/components/coding.dart';
 import 'package:flutter_portfolio/screens/home/components/knowledges.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'my_info.dart';
 import 'skills.dart';
@@ -33,6 +34,24 @@ class SideMenu extends StatelessWidget {
                   Coding(),
                   Knowledges(),
                   Divider(),
+                  TextButton(
+                    onPressed: () {},
+                    child: FittedBox(
+                      child: Row(
+                        children: [
+                          Text(
+                            "DOWNLOAD CV",
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                            ),
+                          ),
+                          const SizedBox(width: defaultPadding / 2),
+                          SvgPicture.asset("assets/icons/download.svg")
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
