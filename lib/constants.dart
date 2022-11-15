@@ -9,3 +9,7 @@ const bgColor = Color(0xFF1E1E28);
 const defaultPadding = 20.0;
 const defaultDuration = Duration(seconds: 1); // we use it on our animation
 const maxWidth = 1440.0; // max width of our web
+
+const linkedinUrl = "https://www.linkedin.com/in/rahul-bavaliya-8a3645125";
+const githubUrl = "https://github.com/rahul-bavaliya";
+const twitterUrl = "https://twitter.com/RbCaptain";

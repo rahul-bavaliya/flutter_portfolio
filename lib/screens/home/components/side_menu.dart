@@ -4,6 +4,8 @@ import 'package:flutter_portfolio/components/animated_progress_indicator.dart';
 import 'package:flutter_portfolio/screens/home/components/coding.dart';
 import 'package:flutter_portfolio/screens/home/components/knowledges.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'my_info.dart';
 import 'skills.dart';
@@ -52,6 +54,40 @@ class SideMenu extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Container(
+                    color: const Color(0xFF24242E),
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        InkWell(
+                          child: IconButton(
+                            onPressed: () {
+                              _launchUrl(url: linkedinUrl);
+                            },
+                            icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+                          ),
+                          onHover: (value) {
+                            if (value) {
+                              print('Change color.');
+                            } else {
+                              print('Do not change color.');
+                            }
+                          },
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              _launchUrl(url: githubUrl);
+                            },
+                            icon: SvgPicture.asset("assets/icons/github.svg")),
+                        IconButton(
+                            onPressed: () {
+                              _launchUrl(url: twitterUrl);
+                            },
+                            icon: SvgPicture.asset("assets/icons/twitter.svg")),
+                        Spacer(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -59,5 +95,13 @@ class SideMenu extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _launchUrl({required String url}) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
